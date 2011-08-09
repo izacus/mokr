@@ -1,0 +1,276 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		191C0BC413F1C9F900E5E474 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 191C0BC313F1C9F900E5E474 /* UIKit.framework */; };
+		191C0BC613F1C9F900E5E474 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 191C0BC513F1C9F900E5E474 /* Foundation.framework */; };
+		191C0BCC13F1C9F900E5E474 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 191C0BCA13F1C9F900E5E474 /* InfoPlist.strings */; };
+		191C0BCE13F1C9F900E5E474 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 191C0BCD13F1C9F900E5E474 /* main.m */; };
+		191C0BD213F1C9F900E5E474 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 191C0BD113F1C9F900E5E474 /* AppDelegate.m */; };
+		19DD02FF13F1CB18008C6CE1 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD02FE13F1CB18008C6CE1 /* HomeViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		191C0BBF13F1C9F900E5E474 /* Mokr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mokr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		191C0BC313F1C9F900E5E474 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		191C0BC513F1C9F900E5E474 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		191C0BC913F1C9F900E5E474 /* Mokr-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mokr-Info.plist"; sourceTree = "<group>"; };
+		191C0BCB13F1C9F900E5E474 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		191C0BCD13F1C9F900E5E474 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		191C0BCF13F1C9F900E5E474 /* Mokr-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mokr-Prefix.pch"; sourceTree = "<group>"; };
+		191C0BD013F1C9F900E5E474 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		191C0BD113F1C9F900E5E474 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		19DD02FD13F1CB18008C6CE1 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		19DD02FE13F1CB18008C6CE1 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		191C0BBC13F1C9F900E5E474 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				191C0BC413F1C9F900E5E474 /* UIKit.framework in Frameworks */,
+				191C0BC613F1C9F900E5E474 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		191C0BB413F1C9F800E5E474 = {
+			isa = PBXGroup;
+			children = (
+				191C0BC713F1C9F900E5E474 /* Mokr */,
+				191C0BC213F1C9F900E5E474 /* Frameworks */,
+				191C0BC013F1C9F900E5E474 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		191C0BC013F1C9F900E5E474 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				191C0BBF13F1C9F900E5E474 /* Mokr.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		191C0BC213F1C9F900E5E474 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				191C0BC313F1C9F900E5E474 /* UIKit.framework */,
+				191C0BC513F1C9F900E5E474 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		191C0BC713F1C9F900E5E474 /* Mokr */ = {
+			isa = PBXGroup;
+			children = (
+				191C0BDE13F1CA3B00E5E474 /* Views */,
+				191C0BD013F1C9F900E5E474 /* AppDelegate.h */,
+				191C0BD113F1C9F900E5E474 /* AppDelegate.m */,
+				191C0BC813F1C9F900E5E474 /* Supporting Files */,
+			);
+			path = Mokr;
+			sourceTree = "<group>";
+		};
+		191C0BC813F1C9F900E5E474 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				191C0BC913F1C9F900E5E474 /* Mokr-Info.plist */,
+				191C0BCA13F1C9F900E5E474 /* InfoPlist.strings */,
+				191C0BCD13F1C9F900E5E474 /* main.m */,
+				191C0BCF13F1C9F900E5E474 /* Mokr-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		191C0BDE13F1CA3B00E5E474 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				19DD02FD13F1CB18008C6CE1 /* HomeViewController.h */,
+				19DD02FE13F1CB18008C6CE1 /* HomeViewController.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		191C0BBE13F1C9F900E5E474 /* Mokr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 191C0BDB13F1C9F900E5E474 /* Build configuration list for PBXNativeTarget "Mokr" */;
+			buildPhases = (
+				191C0BBB13F1C9F900E5E474 /* Sources */,
+				191C0BBC13F1C9F900E5E474 /* Frameworks */,
+				191C0BBD13F1C9F900E5E474 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Mokr;
+			productName = Mokr;
+			productReference = 191C0BBF13F1C9F900E5E474 /* Mokr.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		191C0BB613F1C9F800E5E474 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 191C0BB913F1C9F800E5E474 /* Build configuration list for PBXProject "Mokr" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 191C0BB413F1C9F800E5E474;
+			productRefGroup = 191C0BC013F1C9F900E5E474 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				191C0BBE13F1C9F900E5E474 /* Mokr */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		191C0BBD13F1C9F900E5E474 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				191C0BCC13F1C9F900E5E474 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		191C0BBB13F1C9F900E5E474 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				191C0BCE13F1C9F900E5E474 /* main.m in Sources */,
+				191C0BD213F1C9F900E5E474 /* AppDelegate.m in Sources */,
+				19DD02FF13F1CB18008C6CE1 /* HomeViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		191C0BCA13F1C9F900E5E474 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				191C0BCB13F1C9F900E5E474 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		191C0BD913F1C9F900E5E474 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		191C0BDA13F1C9F900E5E474 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		191C0BDC13F1C9F900E5E474 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mokr/Mokr-Prefix.pch";
+				INFOPLIST_FILE = "Mokr/Mokr-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		191C0BDD13F1C9F900E5E474 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mokr/Mokr-Prefix.pch";
+				INFOPLIST_FILE = "Mokr/Mokr-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		191C0BB913F1C9F800E5E474 /* Build configuration list for PBXProject "Mokr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				191C0BD913F1C9F900E5E474 /* Debug */,
+				191C0BDA13F1C9F900E5E474 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		191C0BDB13F1C9F900E5E474 /* Build configuration list for PBXNativeTarget "Mokr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				191C0BDC13F1C9F900E5E474 /* Debug */,
+				191C0BDD13F1C9F900E5E474 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 191C0BB613F1C9F800E5E474 /* Project object */;
+}
