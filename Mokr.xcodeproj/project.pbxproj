@@ -12,6 +12,8 @@
 		191C0BCC13F1C9F900E5E474 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 191C0BCA13F1C9F900E5E474 /* InfoPlist.strings */; };
 		191C0BCE13F1C9F900E5E474 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 191C0BCD13F1C9F900E5E474 /* main.m */; };
 		191C0BD213F1C9F900E5E474 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 191C0BD113F1C9F900E5E474 /* AppDelegate.m */; };
+		1966B81A13F2FF50004B67BE /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 1966B81913F2FF50004B67BE /* Location.m */; };
+		1966B81C13F2FF75004B67BE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1966B81B13F2FF75004B67BE /* CoreLocation.framework */; };
 		19DD02FF13F1CB18008C6CE1 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD02FE13F1CB18008C6CE1 /* HomeViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +27,9 @@
 		191C0BCF13F1C9F900E5E474 /* Mokr-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mokr-Prefix.pch"; sourceTree = "<group>"; };
 		191C0BD013F1C9F900E5E474 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		191C0BD113F1C9F900E5E474 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1966B81813F2FF50004B67BE /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Location.h; path = Data/Location.h; sourceTree = "<group>"; };
+		1966B81913F2FF50004B67BE /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = Data/Location.m; sourceTree = "<group>"; };
+		1966B81B13F2FF75004B67BE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		19DD02FD13F1CB18008C6CE1 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		19DD02FE13F1CB18008C6CE1 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -34,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1966B81C13F2FF75004B67BE /* CoreLocation.framework in Frameworks */,
 				191C0BC413F1C9F900E5E474 /* UIKit.framework in Frameworks */,
 				191C0BC613F1C9F900E5E474 /* Foundation.framework in Frameworks */,
 			);
@@ -45,6 +51,7 @@
 		191C0BB413F1C9F800E5E474 = {
 			isa = PBXGroup;
 			children = (
+				1966B81B13F2FF75004B67BE /* CoreLocation.framework */,
 				191C0BC713F1C9F900E5E474 /* Mokr */,
 				191C0BC213F1C9F900E5E474 /* Frameworks */,
 				191C0BC013F1C9F900E5E474 /* Products */,
@@ -71,6 +78,7 @@
 		191C0BC713F1C9F900E5E474 /* Mokr */ = {
 			isa = PBXGroup;
 			children = (
+				1966B81613F2FF2B004B67BE /* Data */,
 				191C0BDE13F1CA3B00E5E474 /* Views */,
 				191C0BD013F1C9F900E5E474 /* AppDelegate.h */,
 				191C0BD113F1C9F900E5E474 /* AppDelegate.m */,
@@ -97,6 +105,15 @@
 				19DD02FE13F1CB18008C6CE1 /* HomeViewController.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		1966B81613F2FF2B004B67BE /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				1966B81813F2FF50004B67BE /* Location.h */,
+				1966B81913F2FF50004B67BE /* Location.m */,
+			);
+			name = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +180,7 @@
 				191C0BCE13F1C9F900E5E474 /* main.m in Sources */,
 				191C0BD213F1C9F900E5E474 /* AppDelegate.m in Sources */,
 				19DD02FF13F1CB18008C6CE1 /* HomeViewController.m in Sources */,
+				1966B81A13F2FF50004B67BE /* Location.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

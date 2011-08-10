@@ -11,7 +11,7 @@
 @implementation HomeViewController
 
 // Properties
-@synthesize scrollView;
+@synthesize scrollView, infoButton;
 
 
 - (void)didReceiveMemoryWarning
@@ -25,10 +25,8 @@
 - (UIView*)createLocationView:(int)viewIndex
 {
     UIView *locationView = [[UIView alloc] initWithFrame:CGRectMake(viewIndex * 320, 0, 320, 400)];
-    
     UIView *innerView = [[UIView alloc] initWithFrame:CGRectMake(20, 20, 280, 400)];
     [locationView addSubview:innerView];
-    
     [innerView setBackgroundColor:[UIColor blueColor]];
      
     return locationView;
@@ -56,6 +54,17 @@
     // Create another one
     locationView = [self createLocationView:1];
     [scroll addSubview:locationView];
+    
+    // Create info button to add location
+    UIButton *info = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    [info setFrame:CGRectMake(280, 420, 20, 20)];
+    [self setInfoButton:info];
+    [main addSubview:info];
+}
+
+- (void)showAddLocation
+{
+
 }
 
 - (void)viewDidLoad
