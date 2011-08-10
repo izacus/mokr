@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LocationsViewController : UIViewController<UITableViewDataSource, UISearchBarDelegate> {
-    UITableView *locationList;    
+@interface LocationsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate> {
+    UITableView *locationList;
+    UISearchDisplayController *searchController;
     // Call when done
     void(^doneCallback)(void);
 }
 
 @property(strong, nonatomic) UITableView* locationList;
+@property(strong, nonatomic) UISearchDisplayController *searchController;
 
 - (id) initWithAction:(void (^)(void))action;
 - (void) addButtonPressed:(id)sender;

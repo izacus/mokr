@@ -10,7 +10,7 @@
 
 @implementation LocationsViewController
 
-@synthesize locationList;
+@synthesize locationList, searchController;
 
 - (void)didReceiveMemoryWarning
 {
@@ -95,8 +95,11 @@
     [self.view addSubview:searchBar];
     
     // Create the controller for search bar
-    UISearchDisplayController *searchController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
-    [searchController setSearchResultsDataSource:self];
+    UISearchDisplayController *searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
+    [searchDisplayController setSearchResultsDataSource:self];
+    [searchDisplayController setDelegate:self];
+    [searchDisplayController setSearchResultsDelegate:self];
+    [self setSearchController:searchDisplayController];
     
     // Pop in search bar with animation
     [UIView animateWithDuration:0.5 animations:^(void) {
