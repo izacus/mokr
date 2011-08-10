@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "LocationsViewController.h"
 
 @implementation HomeViewController
 
@@ -58,13 +59,20 @@
     // Create info button to add location
     UIButton *info = [UIButton buttonWithType:UIButtonTypeInfoLight];
     [info setFrame:CGRectMake(280, 420, 20, 20)];
+    [info addTarget:self action:@selector(showAddLocation:) forControlEvents:UIControlEventTouchUpInside];
     [self setInfoButton:info];
     [main addSubview:info];
 }
 
-- (void)showAddLocation
+- (void)showAddLocation:(id)sender
 {
-
+    __block id me = self;
+    LocationsViewController *locations = [[LocationsViewController alloc] initWithAction:^(void){
+        [me dismissModalViewControllerAnimated:YES]; 
+    }];
+    [locations setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    
+    [self presentModalViewController:locations animated:YES];
 }
 
 - (void)viewDidLoad

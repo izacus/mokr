@@ -18,6 +18,6 @@
 @property(nonatomic, strong) UIScrollView *scrollView;
 @property(nonatomic, strong) UIButton *infoButton;
 
-- (void)showAddLocation;
+- (void)showAddLocation:(id)sender;
 
 @end
