@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LocationsViewController : UIViewController {
-    UITableView *locationList;
-    
+@interface LocationsViewController : UIViewController<UITableViewDataSource, UISearchBarDelegate> {
+    UITableView *locationList;    
     // Call when done
     void(^doneCallback)(void);
 }
@@ -18,6 +17,7 @@
 @property(strong, nonatomic) UITableView* locationList;
 
 - (id) initWithAction:(void (^)(void))action;
+- (void) addButtonPressed:(id)sender;
 - (void) doneButtonPressed:(id)sender;
 
 @end

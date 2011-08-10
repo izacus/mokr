@@ -32,6 +32,32 @@
     return self;
 }
 
+// Search bar management functions
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 5;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString* tableViewIdentifier = @"LocationTable";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:tableViewIdentifier];
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:tableViewIdentifier];
+    }
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%d", [indexPath row]];
+    return cell;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar {
+    [searchBar resignFirstResponder];
+    [UIView animateWithDuration:0.5 animations:^(void) {
+        [searchBar setFrame:CGRectMake(0, -44, 320, 44)];  
+    }];
+}
+
+
 #pragma mark - View lifecycle
 
 
@@ -47,14 +73,38 @@
     UINavigationItem *item = [[UINavigationItem alloc] initWithTitle:@"Lokacije"];
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Nazaj" style:UIBarButtonItemStyleDone 
                                                            target:self action:@selector(doneButtonPressed:)];
-    
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
+                                                           target:self action:@selector(addButtonPressed:)];
     [item setLeftBarButtonItem:doneButton];
+    [item setRightBarButtonItem:addButton];
     [navBar pushNavigationItem:item animated:NO];
     [main addSubview:navBar];
     
     UITableView *locations = [[UITableView alloc] initWithFrame:CGRectMake(20, 64, 280, 260) style:UITableViewStylePlain];
     [self setLocationList:locations];
     [main addSubview:locations];
+}
+
+- (void) addButtonPressed:(id)sender
+{
+    // Create a search bar
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, -44, 320, 44)];
+    [searchBar setBarStyle:UIBarStyleBlackOpaque];
+    [searchBar setShowsCancelButton:YES];
+    [searchBar setDelegate:self];
+    [self.view addSubview:searchBar];
+    
+    // Create the controller for search bar
+    UISearchDisplayController *searchController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
+    [searchController setSearchResultsDataSource:self];
+    
+    // Pop in search bar with animation
+    [UIView animateWithDuration:0.5 animations:^(void) {
+        [searchBar setFrame:CGRectMake(0, 0, 320, 44)];
+
+    } completion:^(BOOL finished) {
+        [searchBar becomeFirstResponder];
+    }];
 }
 
 - (void) doneButtonPressed:(id)sender
