@@ -10,8 +10,8 @@
 
 @implementation LocationsViewController
 
-@synthesize locationList, searchController;
-@synthesize databaseController, foundLocations;
+@synthesize locationList, searchController, searchBar;
+@synthesize databaseController, foundLocations, locationsListController, selectedLocations;
 
 - (void)didReceiveMemoryWarning
 {
@@ -26,15 +26,34 @@
     self = [self init];
     if (self)
     {
+        self.selectedLocations = [[SelectedLocationsController alloc] init];
+        self.locationsListController = [[LocationListTableController alloc] initWithSelectedLocationsController:self.selectedLocations];
         self.databaseController = [[DatabaseController alloc] init];
         self->doneCallback = action;
     }
     return self;
 }
 
+- (void) addSelectedLocation:(Location*)location
+{
+    [self.selectedLocations addSelectedLocation:location];
+    [self.locationList reloadData];
+}
+
 // Search bar management functions
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     self.foundLocations = [databaseController getCitiesWithName:searchText];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Location *location = [foundLocations objectAtIndex:[indexPath row]];
+    NSLog(@"User selected location %@.", location.locationName);
+    [self addSelectedLocation:location];
+    [self.searchDisplayController setActive:NO animated:YES];
+    [self setSearchController:nil];
+    [self hideSearchBar];
+    [self setSearchBar:nil];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -61,12 +80,15 @@
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar {
+    [self hideSearchBar];
+}
+
+- (void)hideSearchBar {
     [searchBar resignFirstResponder];
     [UIView animateWithDuration:0.5 animations:^(void) {
         [searchBar setFrame:CGRectMake(0, -44, 320, 44)];  
     }];
 }
-
 
 #pragma mark - View lifecycle
 
@@ -91,6 +113,8 @@
     [main addSubview:navBar];
     
     UITableView *locations = [[UITableView alloc] initWithFrame:CGRectMake(20, 64, 280, 260) style:UITableViewStylePlain];
+    [locations setDelegate:self.locationsListController];
+    [locations setDataSource:self.locationsListController];
     [self setLocationList:locations];
     [main addSubview:locations];
 }
@@ -98,7 +122,7 @@
 - (void) addButtonPressed:(id)sender
 {
     // Create a search bar
-    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, -44, 320, 44)];
+    searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, -44, 320, 44)];
     [searchBar setBarStyle:UIBarStyleBlackOpaque];
     [searchBar setShowsCancelButton:YES];
     [searchBar setDelegate:self];
