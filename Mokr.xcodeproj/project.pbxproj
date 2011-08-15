@@ -15,6 +15,9 @@
 		1966B81A13F2FF50004B67BE /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 1966B81913F2FF50004B67BE /* Location.m */; };
 		1966B81C13F2FF75004B67BE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1966B81B13F2FF75004B67BE /* CoreLocation.framework */; };
 		1966B81F13F30296004B67BE /* LocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1966B81E13F30296004B67BE /* LocationsViewController.m */; };
+		198D11CB13F9765600281C20 /* DatabaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 198D11CA13F9765600281C20 /* DatabaseController.m */; };
+		198D11CE13F9773000281C20 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 198D11CD13F9773000281C20 /* libsqlite3.dylib */; };
+		198D11D113F9777200281C20 /* cities.db in Resources */ = {isa = PBXBuildFile; fileRef = 198D11D013F9777200281C20 /* cities.db */; };
 		19DD02FF13F1CB18008C6CE1 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD02FE13F1CB18008C6CE1 /* HomeViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +36,10 @@
 		1966B81B13F2FF75004B67BE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1966B81D13F30296004B67BE /* LocationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationsViewController.h; sourceTree = "<group>"; };
 		1966B81E13F30296004B67BE /* LocationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationsViewController.m; sourceTree = "<group>"; };
+		198D11C913F9765600281C20 /* DatabaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatabaseController.h; path = Data/DatabaseController.h; sourceTree = "<group>"; };
+		198D11CA13F9765600281C20 /* DatabaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatabaseController.m; path = Data/DatabaseController.m; sourceTree = "<group>"; };
+		198D11CD13F9773000281C20 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		198D11D013F9777200281C20 /* cities.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = cities.db; sourceTree = "<group>"; };
 		19DD02FD13F1CB18008C6CE1 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		19DD02FE13F1CB18008C6CE1 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -42,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				198D11CE13F9773000281C20 /* libsqlite3.dylib in Frameworks */,
 				1966B81C13F2FF75004B67BE /* CoreLocation.framework in Frameworks */,
 				191C0BC413F1C9F900E5E474 /* UIKit.framework in Frameworks */,
 				191C0BC613F1C9F900E5E474 /* Foundation.framework in Frameworks */,
@@ -54,6 +62,7 @@
 		191C0BB413F1C9F800E5E474 = {
 			isa = PBXGroup;
 			children = (
+				198D11CD13F9773000281C20 /* libsqlite3.dylib */,
 				1966B81B13F2FF75004B67BE /* CoreLocation.framework */,
 				191C0BC713F1C9F900E5E474 /* Mokr */,
 				191C0BC213F1C9F900E5E474 /* Frameworks */,
@@ -81,6 +90,7 @@
 		191C0BC713F1C9F900E5E474 /* Mokr */ = {
 			isa = PBXGroup;
 			children = (
+				198D11CF13F9775700281C20 /* Resources */,
 				1966B81613F2FF2B004B67BE /* Data */,
 				191C0BDE13F1CA3B00E5E474 /* Views */,
 				191C0BD013F1C9F900E5E474 /* AppDelegate.h */,
@@ -117,8 +127,18 @@
 			children = (
 				1966B81813F2FF50004B67BE /* Location.h */,
 				1966B81913F2FF50004B67BE /* Location.m */,
+				198D11C913F9765600281C20 /* DatabaseController.h */,
+				198D11CA13F9765600281C20 /* DatabaseController.m */,
 			);
 			name = Data;
+			sourceTree = "<group>";
+		};
+		198D11CF13F9775700281C20 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				198D11D013F9777200281C20 /* cities.db */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				191C0BCC13F1C9F900E5E474 /* InfoPlist.strings in Resources */,
+				198D11D113F9777200281C20 /* cities.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +208,7 @@
 				19DD02FF13F1CB18008C6CE1 /* HomeViewController.m in Sources */,
 				1966B81A13F2FF50004B67BE /* Location.m in Sources */,
 				1966B81F13F30296004B67BE /* LocationsViewController.m in Sources */,
+				198D11CB13F9765600281C20 /* DatabaseController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

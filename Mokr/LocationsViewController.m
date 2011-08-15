@@ -11,6 +11,7 @@
 @implementation LocationsViewController
 
 @synthesize locationList, searchController;
+@synthesize databaseController, foundLocations;
 
 - (void)didReceiveMemoryWarning
 {
@@ -23,18 +24,24 @@
 - (id) initWithAction:(void (^)(void))action
 {
     self = [self init];
-    
-    if (self != nil)
+    if (self)
     {
+        self.databaseController = [[DatabaseController alloc] init];
         self->doneCallback = action;
     }
-    
     return self;
 }
 
 // Search bar management functions
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    self.foundLocations = [databaseController getCitiesWithName:searchText];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    if (self.foundLocations)
+        return [foundLocations count];
+    else
+        return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -46,7 +53,10 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:tableViewIdentifier];
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%d", [indexPath row]];
+    Location *location = [self.foundLocations objectAtIndex:[indexPath row]];
+    
+    if (location)
+        cell.textLabel.text = [NSString stringWithFormat:@"%@", location.locationName];
     return cell;
 }
 
