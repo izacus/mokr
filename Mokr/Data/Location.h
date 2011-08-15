@@ -11,11 +11,13 @@
 
 @interface Location : NSObject {
     NSString* locationName;
-    CLLocationCoordinate2D coordinate;
+    NSNumber* latitude;
+    NSNumber* longtitude;
 }
 
 @property(strong, nonatomic) NSString* locationName;
-@property(nonatomic) CLLocationCoordinate2D coordinate;
+@property(strong, nonatomic) NSNumber* latitude;
+@property(strong, nonatomic) NSNumber* longtitude;
 
 -(id) initWithLocation:(NSString*)name atCoordinate:(CLLocationCoordinate2D)location;
 

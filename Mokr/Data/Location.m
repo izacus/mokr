@@ -3,13 +3,13 @@
 //  Mokr
 //
 //  Created by Jernej Virag on 8/10/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2011 Jernej Virag. All rights reserved.
 //
 
 #import "Location.h"
 
 @implementation Location 
-@synthesize locationName, coordinate;
+@synthesize locationName, latitude, longtitude;
 
 -(id) initWithLocation:(NSString*)name atCoordinate:(CLLocationCoordinate2D)location
 {
@@ -18,7 +18,8 @@
     if (self != nil)
     {
         [self setLocationName:name];
-        [self setCoordinate:location];
+        [self setLatitude:[NSNumber numberWithDouble:location.latitude]];
+        [self setLongtitude:[NSNumber numberWithDouble:location.longitude]];
     }
     
     return self;

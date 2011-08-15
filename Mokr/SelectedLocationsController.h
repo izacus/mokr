@@ -11,11 +11,15 @@
 
 @interface SelectedLocationsController : NSObject {
     NSMutableArray *selectedLocations;
+    
+    NSUserDefaults *defaults;
 }
 
 @property(strong, readonly) NSMutableArray *selectedLocations;
 
 - (void) addSelectedLocation:(Location*)location;
 - (void) removeSelectedLocationsAt:(int)index;
+- (void) loadFromDefaults;
+- (void) storeToDefaults;
 
 @end
