@@ -36,6 +36,7 @@
 
 - (void) loadFromDefaults
 {
+    selectedLocations = [[NSMutableArray alloc] init];
     NSArray *storedLocations = [defaults arrayForKey:@"locations"];
     
     if (storedLocations)

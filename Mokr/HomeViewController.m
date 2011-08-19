@@ -12,8 +12,21 @@
 @implementation HomeViewController
 
 // Properties
-@synthesize scrollView, infoButton;
+@synthesize scrollView, scrollPageControl, infoButton;
+@synthesize selectedLocations;
 
+- (id)init
+{
+    self = [super init];
+    
+    if (self)
+    {
+        SelectedLocationsController *selectedLocationsController = [[SelectedLocationsController alloc] init];
+        [self setSelectedLocations:selectedLocationsController];
+    }
+    
+    return self;
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -33,6 +46,30 @@
     return locationView;
 }
 
+- (void)createLocationViews:(UIScrollView*)scroll
+{
+    locationViews = [[NSMutableArray alloc] init];
+    
+    // Create location views, current location first
+    [scroll setContentSize:CGSizeMake(320 * ([selectedLocations.selectedLocations count] + 1), 420)];
+    UIView *locationView = [self createLocationView:0];
+    [scroll addSubview:locationView];
+    [locationViews addObject:locationView];
+    
+    int i = 1;
+    
+    // Create the rest
+    for (Location* location in selectedLocations.selectedLocations)
+    {
+        UIView *viewForLocation = [self createLocationView:i];
+        [scroll addSubview:viewForLocation];
+        [locationViews addObject:locationView];
+        i++;
+    }
+    
+    [scrollPageControl setNumberOfPages:i];
+}
+
 // Create main application views
 - (void)loadView
 {
@@ -41,21 +78,24 @@
     [self setView:main];
     
     // Create scrollview to span application
-    UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 440)];
+    UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 420)];
     [scroll setPagingEnabled:YES];
     [scroll setShowsHorizontalScrollIndicator:NO];
     [scroll setShowsVerticalScrollIndicator:NO];
+    [scroll setScrollsToTop:NO];
+    [scroll setDelegate:self];
     [self setScrollView: scroll];
     [main addSubview:scroll];
     
-    // TODO: Create views for each location
-    [scroll setContentSize:CGSizeMake(320 * 2, 440)];
-    UIView *locationView = [self createLocationView:0];
-    [scroll addSubview:locationView];
-    // Create another one
-    locationView = [self createLocationView:1];
-    [scroll addSubview:locationView];
-    
+    // Create page control for scrollview
+    UIPageControl *pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 410, 320, 44)];
+    [pageControl setDefersCurrentPageDisplay:YES];
+    [main addSubview:pageControl];
+    [self setScrollPageControl:pageControl];
+
+    // Create subviews for the scroller
+    [self createLocationViews:scroll];
+        
     // Create info button to add location
     UIButton *info = [UIButton buttonWithType:UIButtonTypeInfoLight];
     [info setFrame:CGRectMake(280, 420, 20, 20)];
@@ -68,12 +108,28 @@
 {
     __block id me = self;
     LocationsViewController *locations = [[LocationsViewController alloc] initWithAction:^(void){
+        // Remove all scrollviews
+        for (UIView *view in [scrollView subviews])
+            [view removeFromSuperview];
+        
+        [selectedLocations loadFromDefaults];
+        [self createLocationViews:scrollView];
+        
         [me dismissModalViewControllerAnimated:YES]; 
     }];
     [locations setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     
     [self presentModalViewController:locations animated:YES];
 }
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView                                          
+{
+    CGFloat pageWidth = self.scrollView.frame.size.width;
+    int page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    [scrollPageControl setCurrentPage:page];
+    [scrollPageControl updateCurrentPageDisplay];
+}
+
 
 - (void)viewDidLoad
 {

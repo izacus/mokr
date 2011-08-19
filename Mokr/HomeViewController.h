@@ -7,16 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SelectedLocationsController.h"
+#import "Location.h"
 
-@interface HomeViewController : UIViewController {
+@interface HomeViewController : UIViewController<UIScrollViewDelegate> {
     UIScrollView *scrollView;
+    UIPageControl *scrollPageControl;
     UIButton *infoButton;
     
+    NSMutableArray *locationViews;
+    
     // List of all known locations
+    SelectedLocationsController *selectedLocations;
 }
 
 @property(nonatomic, strong) UIScrollView *scrollView;
+@property(nonatomic, strong) UIPageControl *scrollPageControl;
 @property(nonatomic, strong) UIButton *infoButton;
+@property(nonatomic, strong) SelectedLocationsController *selectedLocations;
 
 - (void)showAddLocation:(id)sender;
 

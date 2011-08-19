@@ -11,7 +11,6 @@
 
 @interface SelectedLocationsController : NSObject {
     NSMutableArray *selectedLocations;
-    
     NSUserDefaults *defaults;
 }
 
